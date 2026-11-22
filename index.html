@@ -157,6 +157,26 @@
       display: inline-block;
     }
 
+    /* ── SHARED BUTTON ───────────────────────────────── */
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-family: 'Lora', serif;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .download-btn:hover {
+      background: var(--blue);
+      transform: translateY(-2px);
+    }
+
     /* ── ABOUT ───────────────────────────────────────── */
     .about-top {
       display: flex;
@@ -168,7 +188,7 @@
 
     .about-photo {
       width: 200px;
-      height: 300;
+      height: 300px;
       object-fit: cover;
       border-radius: 4px;
       border: 3px solid var(--blue);
@@ -260,130 +280,78 @@
       font-size: 0.97rem;
     }
 
-    /* ── COURSEWORK ──────────────────────────────────── */
-    .cw-degree {
-      font-size: 1.2rem;
-      color: var(--blue);
-      font-weight: 600;
-      margin-bottom: 0.25rem;
+    /* ── CV / RESUME ─────────────────────────────────── */
+    .cv-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
     }
 
-    .cw-major {
-      font-size: 1rem;
-      font-style: italic;
-      color: #555;
-      margin-bottom: 2rem;
+    .cv-header .section-title {
+      margin-bottom: 0;
     }
 
-    .cw-subsection {
-      margin-bottom: 2rem;
-    }
-
-    .cw-subsection h3 {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--orange);
-      margin-bottom: 0.8rem;
-    }
-
-    .course-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 0.5rem;
-    }
-
-    .course-list li {
+    .cv-viewer-wrap {
+      width: 100%;
       background: var(--light);
-      padding: 0.6rem 1rem;
-      border-radius: 3px;
-      font-size: 0.93rem;
-      border-left: 3px solid var(--blue);
+      border-radius: 6px;
+      border-top: 5px solid var(--blue);
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 33, 165, 0.08);
     }
 
-    .academic-items {
+    .cv-viewer {
+      display: block;
+      width: 100%;
+      height: 850px;
+      border: none;
+    }
+
+    .cv-fallback {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .cv-fallback a {
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    /* ── OTHER / POETRY ──────────────────────────────── */
+    .poetry-intro {
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .poetry-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 1.25rem;
     }
 
-    .academic-items li {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      padding-left: 1.2rem;
+    .poetry-list li {
+      font-size: 1rem;
+      line-height: 1.75;
+      padding-left: 1.35rem;
       position: relative;
     }
 
-    .academic-items li::before {
+    .poetry-list li::before {
       content: '▸';
       color: var(--orange);
       position: absolute;
       left: 0;
+      top: 0.05rem;
     }
 
-    /* ── CV / RESUME ─────────────────────────────────── */
-    .cv-download {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--orange);
-      color: var(--white);
-      text-decoration: none;
-      padding: 0.75rem 1.75rem;
-      border-radius: 4px;
-      font-size: 1rem;
-      font-family: 'Lora', serif;
-      transition: background 0.2s, transform 0.15s;
-      margin-bottom: 2.5rem;
-    }
-
-    .cv-download:hover {
-      background: var(--blue);
-      transform: translateY(-2px);
-    }
-
-    .cv-featured {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .cv-card {
-      background: var(--light);
-      border-radius: 5px;
-      padding: 1.5rem;
-      border-top: 4px solid var(--blue);
-    }
-
-    .cv-card h3 {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--orange);
-      margin-bottom: 0.85rem;
-    }
-
-    .cv-card ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }
-
-    .cv-card ul li {
-      font-size: 0.93rem;
-      line-height: 1.55;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .cv-card ul li::before {
-      content: '–';
-      color: var(--blue);
-      position: absolute;
-      left: 0;
+    .poetry-desc {
+      margin-bottom: 0.75rem;
     }
 
     /* ── FOOTER ──────────────────────────────────────── */
@@ -402,6 +370,7 @@
       #home h1 { font-size: 1.9rem; }
       .about-top { flex-direction: column; align-items: center; }
       .research-card { padding: 1.5rem; }
+      .cv-viewer { height: 550px; }
     }
   </style>
 </head>
@@ -411,10 +380,10 @@
 <nav>
   <span class="nav-brand" onclick="showSection('home')">Andrew Harwood</span>
   <ul class="nav-links">
-    <li><a href="#" onclick="showSection('about')"     id="tab-about">About</a></li>
-    <li><a href="#" onclick="showSection('research')"  id="tab-research">Research</a></li>
-    <li><a href="#" onclick="showSection('coursework')"id="tab-coursework">Coursework</a></li>
-    <li><a href="#" onclick="showSection('cv')"        id="tab-cv">CV / Resume</a></li>
+    <li><a href="#" onclick="return showSection('about')"    id="tab-about">About</a></li>
+    <li><a href="#" onclick="return showSection('research')" id="tab-research">Research</a></li>
+    <li><a href="#" onclick="return showSection('cv')"       id="tab-cv">Curriculum Vitae</a></li>
+    <li><a href="#" onclick="return showSection('other')"    id="tab-other">Other</a></li>
   </ul>
 </nav>
 
@@ -449,11 +418,10 @@
           I sound my barbaric yawp over the roofs of the world." - Walt Whitman, "Song of Myself" (1855)
         </blockquote>
         <p>
-           My name is Andrew (Drew) Harwood and I am an undergraduate physics student in the honors program at the University of Florida. While my primary academic focus is physics and biophysics research,
-           I engage deeply with music and poetry. I have played clarinet in the university's clarinet choir, symphonic and concert bands, as well as
-           steel pan in the Sunshine Steelers Steel Band. An introductory poetry course sparked my interest, and now I am in the process of revising two poems
-           with the goal of publication in a university journal. I believe that the diversity of my academic experience - my willingness to engage with and learn about
-           many subjects - has developed the nuanced perspective I bring to biophysics.
+           My name is Andrew (Drew) Harwood, and I am an undergraduate physics student in the honors program at the University of Florida. While my primary academic focus is physics and biophysics research,
+           I engage deeply with music and poetry. I have played clarinet in the university's clarinet choir and symphonic and concert bands, as well as steel pan in the Sunshine Steelers Steel Drum Band. An 
+           introductory poetry course sparked my interest, and now I am in the process of revising two poems with the goal of publication in a journal. I believe that the diversity of my academic experience 
+           - my willingness to engage with and learn about many subjects - has developed the nuanced perspective I bring to biophysics.
         </p>
       </div>
     </div>
@@ -461,10 +429,10 @@
     <p class="about-blurb">
       I am interested in understanding all aspects of the world around me - from quantum to biological systems.
       Through my research experience in biophysics, I have experienced firsthand the fundamental connections between different areas of physics.
-      Applying mathematical techniques from solid state physics to biological systems has allowed us to quantify traits which have been, thus far,
+      Applying mathematical techniques from solid-state physics to biological systems has allowed us to quantify traits which have been, thus far,
       treated qualitatively. I have also experienced the importance of interdisciplinary research; the tools I bring to biology from physics have developed into
       new and robust methods, and thus, alternate ways of thinking about the same biological systems. While my current research has a biophysics flavor, I am
-      generally interested in condensed matter and quantum systems. Furthermore, as we press forward in the age of AI, I use convolutional classification neural
+      generally interested in condensed matter systems. Furthermore, as we press forward in the age of AI, I use convolutional classification neural
       networks in my research.
     </p>
   </div>
@@ -476,16 +444,16 @@
     <h2 class="section-title">Research</h2>
 
     <div class="research-card">
-      <h2>Characterizing spatial morphology of fossilized bryozoan colonies using lattice structure</h2>
+      <h2>Characterizing Spatial Morphology of Fossilized Bryozoan Colonies Using Lattice Structure</h2>
 
       <div class="research-meta">
         <div class="meta-item">
-          <label>Reseacher</label>
+          <label>Researcher</label>
           <span>Andrew Harwood</span>
         </div>
         <div class="meta-item">
           <label>Principal Investigator</label>
-          <span>Professor BingKan Xue</span>
+          <span>Professor BingKan Xue - Department of Physics, University of Florida</span>
         </div>
         <div class="meta-item">
           <label>Collaborator</label>
@@ -502,9 +470,10 @@
       </div>
 
       <figure class="research-image-wrap">
-        <img src="assets/research.jpg" alt="Description of project image" />
+        <img src="assets/research.jpg" alt="An example image of a bryozoan sample and its corresponding order parameter curve.
+          The peak at n=6 indicates that this bryozoan colony can be described as a hexagonal lattice structure." />
         <figcaption>An example image of a bryozoan sample and its corresponding order parameter curve.
-          The peak at n=6 indicates that this bryozoan colony can be described as a hexagonal lattice strucutre.
+          The peak at n=6 indicates that this bryozoan colony can be described as a hexagonal lattice structure.
         </figcaption>
       </figure>
 
@@ -524,47 +493,12 @@
       </p>
       <br>
       <p>
-        I use Python, along with its many opensource libraries, to analyze digitized bryozoan samples.
+        I use Python, along with its many open-source libraries, to analyze digitized bryozoan samples.
         My responsibilities are to develop new ideas and methods for quantitative analysis of bryozoans. Thus
-        far I have written code for Fourier lattice analysis, Fourier image analysis, Voronoi and centroidal dual mesh
+        far, I have written code for Fourier lattice analysis, Fourier image analysis, Voronoi and centroidal dual mesh
         partitions, and orientational order parameters. It is my job to understand the technicalities of translating
-        our theoretical methods into functional code that can be applied digitized bryozoan samples.
+        our theoretical methods into functional code that can be applied to digitized bryozoan samples.
       </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══ COURSEWORK ══════════════════════════════════════ -->
-<section id="coursework" class="page-section">
-  <div class="section-inner">
-    <h2 class="section-title">Coursework</h2>
-
-    <p class="cw-degree">Bachelor of Science, Honors Program</p>
-    <p class="cw-major">Physics</p>
-
-    <div class="cw-subsection">
-      <h3>Relevant Courses</h3>
-      <ul class="course-list">
-        <li>Theoretical Physics</li>
-        <li>Quantum Mechanics 1 & 2</li>
-        <li>Electromagnetism 1 & 2</li>
-        <li>Statistical Mechanics</li>
-        <li>Thermal Physics</li>
-        <li>Solid State Physics (Graduate)</li>
-      </ul>
-    </div>
-
-    <div class="cw-subsection">
-      <h3>Other Academic Highlights</h3>
-      <ul class="academic-items">
-        <li>Dean's List - Fall 2023, Spring 2024, Fall 2024, Spring 2025, Fall 2025, Spring 2026</li>
-        <li>President's Honor Roll - 2023/2024, 2024/2025, 2025/2026</li>
-        <li>Hazen E. Nutter Scholarship Recipient 2026</li>
-        <li>2026/2027 USP AI Scholar & Researcher</li>
-        <li>Wentworth Experiential Learning Fund Recipient 2026</li>
-        <li>2024/2025 Avionics and Recovery Technical Lead: NASA USLI Division, Swamp Launch Rocket Team</li>
-      </ul>
     </div>
 
   </div>
@@ -573,66 +507,40 @@
 <!-- ══ CV / RESUME ════════════════════════════════════ -->
 <section id="cv" class="page-section">
   <div class="section-inner">
-    <h2 class="section-title">CV / Resume</h2>
-
-    <a class="cv-download" href="assets/andrewharwood-cv.pdf" download>↓ Download CV / Resume (.pdf)</a>
-
-    <div class="cv-featured">
-
-      <div class="cv-card">
-        <h3>Education</h3>
-        <ul>
-          <li>B.S. in Physics, University of Florida, Spring 2027</li>
-          <li>GPA: 3.96 / 4.0</li>
-        </ul>
-      </div>
-
-      <div class="cv-card">
-        <h3>Awards &amp; Honors</h3>
-        <ul>
-          <li>Hazen E. Nutter Scholarship Recipient</li>
-          <li>USP AI Scholar & Researcher</li>
-        </ul>
-      </div>
-
-      <div class="cv-card">
-        <h3>Research Experience</h3>
-        <ul>
-          <li>Undergraduate Researcher, Xue Group: Biophysics Theory, 2024-Present</li>
-          <li>Applying solid state physics to digitized bryozoan samples for classification</li>
-          <li>Analysis includes: Reciprocal lattice analysis, Fourier analysis, order parameters, Voronoi and centroidal dual mesh partitioning</li>
-        </ul>
-      </div>
-
-      <div class="cv-card">
-        <h3>Engineering Experience</h3>
-        <ul>
-          <li>2024-2025 Avionics and Recovery Technical Lead: NASA USLI Division, Swamp Launch Rocket Team</li>
-          <li>Designed, manufactured, and tested avionics bays capable of housing two flight computers and a long-range GPS</li>
-          <li>Analysis of descent rates and in-flight forces to integrate and test parachutes, recovery harnesses, and recovery hardware</li>
-        </ul>
-      </div>
-
-      <div class="cv-card">
-        <h3>Skills</h3>
-        <ul>
-          <li>Programming: Python, Jupyter, Pandas, OpenCV, PyTorch, Fusion360, OpenRocket</li>
-          <li>Micro-electronics, Soldering, 3D printing</li>
-          <li>English, French (working proficiency)</li>
-        </ul>
-      </div>
-
-      <div class="cv-card">
-        <h3>Personal Project</h3>
-        <ul>
-          <li>NeoPixel Replica Lightsaber</li>
-          <li>Designed and integrated a SaberTec GHv3 soundboard along with a suite of microelectronics into a compact, 3D-printed modular chassis for a machined aluminum hilt </li>
-          <li>Utilized rotary pin connectors and NeoPixel LED connectors to allow the replica’s soundboard and LED Pixel blade to be hot-swappable and fully programmable</li>
-        </ul>
-      </div>
-      
-
+    <div class="cv-header">
+      <h2 class="section-title">Curriculum Vitae</h2>
+      <a class="download-btn" href="assets/andrewharwood-cv-20261122.pdf" target="_blank" rel="noopener">CV (.pdf)</a>
     </div>
+
+    <div class="cv-viewer-wrap">
+      <object class="cv-viewer" data="assets/andrewharwood-cv-20261122.pdf" type="application/pdf">
+        <p class="cv-fallback">
+          Your browser does not support inline PDF viewing.
+          <a href="assets/andrewharwood-cv.pdf" target="_blank" rel="noopener">Open the PDF in a new tab</a>
+          or use the download button above.
+        </p>
+      </object>
+    </div>
+  </div>
+</section>
+
+<!-- ══ OTHER ═══════════════════════════════════════════ -->
+<section id="other" class="page-section">
+  <div class="section-inner">
+    <h2 class="section-title">Poetry</h2>
+
+    <p class="poetry-intro">
+      Alongside biophysics research, I read and write poetry about anything and everything that comes to mind. Favorite poets of mine include T.S. Eliot, James Merrill, and Elizabeth Bishop. 
+    </p>
+
+    <ul class="poetry-list">
+      <li>
+        <p class="poetry-desc">
+          "Prose and Tea: Two Poems by Andrew Harwood" (2026) is a pair of poems about the beauty within an ordinary, everyday mug and tea. 
+        </p>
+        <a class="download-btn" href="assets/andrewharwood-MugBear-20261019.pdf" target="_blank" rel="noopener">"Prose and Tea" (.pdf)</a>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -642,8 +550,8 @@
 </footer>
 
 <script>
-  const sections = ['home','about','research','coursework','cv'];
-  const tabs     = ['about','research','coursework','cv'];
+  const sections = ['home','about','research','cv','other'];
+  const tabs     = ['about','research','cv','other'];
 
   function showSection(id) {
     sections.forEach(s => {
